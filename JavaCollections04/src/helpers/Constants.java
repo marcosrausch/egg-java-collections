@@ -18,12 +18,6 @@ public class Constants {
             = "Ninguna de las películas disponibles "
             + "dura más de una hora";
     
-    protected static final String SORT_BY_TITLE
-            = "title";
-    
-    protected static final String SORT_BY_DIRECTOR
-            = "director";
-
     protected static final String YES
             = "S";
 
@@ -31,7 +25,7 @@ public class Constants {
             = "N";
     
     protected static final int EXIT
-            = 8;
+            = 7;
     
     protected static final int AN_HOUR
             = 60;
@@ -44,6 +38,15 @@ public class Constants {
 
     protected static final String GOODBYE
             = "¡Adiós!";
+    
+    protected static final String SORT_BY_TITLE
+            = "title";
+       
+    protected static final String SORT_BY_DIRECTOR
+            = "director";
+    
+    protected static final String SORT_BY_RUNTIME
+            = "runtime";  
         
     protected static final String MENU
             = "\n¿Qué desea hacer ahora?\n"
@@ -54,9 +57,10 @@ public class Constants {
             + "5. Ver películas ordenadas alfabéticamente por título\n"
             + "6. Ver películas ordenadas alfabéticamente por director\n"
             + "7. Salir\n";
-    
-    public enum Order {
+        
+    public static enum Sort {
         ASC,
         DESC
     }
+    
 }

@@ -32,16 +32,16 @@ public class Menu extends Constants {
                 Cinema.showMovies(movies, true);
                 break;
             case 3:
-                Cinema.sortMovies(movies, Order.DESC);
+                Cinema.sortMovies(movies, SORT_BY_RUNTIME, Sort.ASC);
                 break;
             case 4:                
-                Cinema.sortMovies(movies, Order.ASC);    
+                Cinema.sortMovies(movies, SORT_BY_RUNTIME, Sort.DESC);    
                 break;
             case 5:
-                Cinema.sortMovies(movies, SORT_BY_TITLE);
+                Cinema.sortMovies(movies, SORT_BY_TITLE, Sort.DESC);
                 break;
             case 6:
-                Cinema.sortMovies(movies, SORT_BY_DIRECTOR);
+                Cinema.sortMovies(movies, SORT_BY_DIRECTOR, Sort.DESC);
                 break;
             case 7:
                 System.out.println(GOODBYE);

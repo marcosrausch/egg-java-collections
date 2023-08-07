@@ -4,7 +4,7 @@ public class Movie {
     // attributes
     private String title;
     private String directedBy;
-    private int runtime;
+    private Integer runtime;
     
     // constructors
     public Movie(String title, String directedBy, int runtime) {
@@ -33,7 +33,7 @@ public class Movie {
         this.directedBy = directedBy;
     }
 
-    public int getRuntime() {
+    public Integer getRuntime() {
         return runtime;
     }
 

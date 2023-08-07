@@ -3,6 +3,7 @@ package services;
 import domain.Movie;
 import helpers.Constants;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Cinema extends Constants {
@@ -15,10 +16,8 @@ public class Cinema extends Constants {
     }
 
     /**
-     * Asks for movie data
-     * Adds movie to movie list
-     * Asks for another movie
-     * Calls the handler
+     * Asks for movie data Adds movie to movie list Asks for another movie Calls
+     * the handler
      */
     public static void createMovie() {
         scanFor = new Scanner(System.in);
@@ -40,6 +39,7 @@ public class Cinema extends Constants {
 
     /**
      * either creates another movie or shows the menu
+     *
      * @param option either a yes or a no
      * @param movies stored in the list
      * @throws an error whenever user's input isn't a yes or a no
@@ -56,6 +56,7 @@ public class Cinema extends Constants {
 
     /**
      * prints on terminal the
+     *
      * @param movies stored on the list.
      */
     static void showMovies(ArrayList<Movie> movies) {
@@ -66,6 +67,7 @@ public class Cinema extends Constants {
 
     /**
      * prints on terminal any
+     *
      * @param movie which
      * @param runtime it's greater than 60 minutes.
      */
@@ -82,8 +84,8 @@ public class Cinema extends Constants {
     }
 
     /**
-     * It's like a movie constructor, in order to work
-     * needs the 
+     * It's like a movie constructor, in order to work needs the
+     *
      * @param title of the movie
      * @param director or directors of the movie and
      * @param runtime of the movie
@@ -94,24 +96,29 @@ public class Cinema extends Constants {
     }
 
     /**
-     * It sorts the
-     * @param movies on the list by
-     * @param order which can be ascending or descending.
+     * It sorts the movie list according to arguments.
+     * It shows it at the end.
+     * @param movies is the list of movies
+     * @param sort can be ascending or descending.
      */
-    static void sortMovies(ArrayList<Movie> movies, Order order) {
-        showMovies(Sort.runtime(movies, order));
+    static void sortMovies(ArrayList<Movie> movies, String arg, Sort sort) {
+        if (arg.equalsIgnoreCase("runtime")) {
+            if (sort.equals(Sort.ASC)) {
+                Collections.sort(movies, Compare.byRuntime.reversed());
+            } else {
+                Collections.sort(movies, Compare.byRuntime);
+            }
+        }
+        
+        if (arg.equalsIgnoreCase("director")) {
+            Collections.sort(movies, Compare.byDirector);
+        }
+        
+        if (arg.equalsIgnoreCase("title")) {
+            Collections.sort(movies, Compare.byTitle);
+        }
+
+        showMovies(movies);
     }
     
-    /**
-     * sorts the 
-     * @param movies stored on the list by
-     * @param arg which can be 'title' or 'director'
-     */
-    static void sortMovies(ArrayList<Movie> movies, String arg) {
-        if (arg.equalsIgnoreCase("title")) {
-            showMovies(Sort.title(movies));
-        } else if (arg.equalsIgnoreCase("director")) {
-            showMovies(Sort.directedBy(movies));
-        }
-    }
 }
